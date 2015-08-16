@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		840746201B63E2D500FD4477 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8407461F1B63E2D500FD4477 /* DetailViewController.m */; };
+		8420A56A1B6BD45500009AAD /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8420A5691B6BD45500009AAD /* SF-UI-Display-Bold.otf */; };
+		84360B611B7A6772003F4626 /* UIColor+HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 84360B601B7A6772003F4626 /* UIColor+HexColors.m */; };
+		84CDA3591B6FAD88009C220C /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CDA3581B6FAD88009C220C /* TableViewCell.m */; };
+		FB4CBFBE1B75F9400035C659 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4CBFBD1B75F9400035C659 /* Venue.m */; };
+		FB59C7001B637D9100521760 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59C6FF1B637D9100521760 /* main.m */; };
+		FB59C7031B637D9100521760 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59C7021B637D9100521760 /* AppDelegate.m */; };
+		FB59C7061B637D9100521760 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59C7051B637D9100521760 /* ViewController.m */; };
+		FB59C70B1B637D9100521760 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB59C70A1B637D9100521760 /* Images.xcassets */; };
+		FB59C70E1B637D9100521760 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB59C70C1B637D9100521760 /* LaunchScreen.xib */; };
+		FB59C71A1B637D9100521760 /* NightTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59C7191B637D9100521760 /* NightTimeTests.m */; };
+		FB59C7251B637DD100521760 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59C7241B637DD100521760 /* TableViewController.m */; };
+		FB59C72A1B63954900521760 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB59C7291B63954900521760 /* CoreLocation.framework */; };
+		FB8260B41B6C9EA300FF07C0 /* VenuesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8260B31B6C9EA300FF07C0 /* VenuesModel.m */; };
+		FB8260B71B6CA1D600FF07C0 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8260B61B6CA1D600FF07C0 /* Location.m */; };
+		FB8260BD1B6CDE4600FF07C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB8260BB1B6CDE4600FF07C0 /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB59C7141B637D9100521760 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB59C6F21B637D9100521760 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB59C6F91B637D9100521760;
+			remoteInfo = NightTime;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8407461E1B63E2D500FD4477 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		8407461F1B63E2D500FD4477 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		8420A5691B6BD45500009AAD /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
+		84360B5F1B7A6772003F4626 /* UIColor+HexColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexColors.h"; sourceTree = "<group>"; };
+		84360B601B7A6772003F4626 /* UIColor+HexColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexColors.m"; sourceTree = "<group>"; };
+		84CDA3571B6FAD88009C220C /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		84CDA3581B6FAD88009C220C /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		84CDA35D1B6FDF06009C220C /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
+		84EA300D1B779BC000573126 /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
+		84EA300E1B779BC000573126 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
+		FB4CBFBC1B75F9400035C659 /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
+		FB4CBFBD1B75F9400035C659 /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
+		FB59C6FA1B637D9100521760 /* NightTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB59C6FE1B637D9100521760 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB59C6FF1B637D9100521760 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FB59C7011B637D9100521760 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FB59C7021B637D9100521760 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FB59C7041B637D9100521760 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FB59C7051B637D9100521760 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FB59C70A1B637D9100521760 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FB59C70D1B637D9100521760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FB59C7131B637D9100521760 /* NightTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NightTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB59C7181B637D9100521760 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB59C7191B637D9100521760 /* NightTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NightTimeTests.m; sourceTree = "<group>"; };
+		FB59C7231B637DD100521760 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		FB59C7241B637DD100521760 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		FB59C7291B63954900521760 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FB8260B21B6C9EA300FF07C0 /* VenuesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenuesModel.h; sourceTree = "<group>"; };
+		FB8260B31B6C9EA300FF07C0 /* VenuesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenuesModel.m; sourceTree = "<group>"; };
+		FB8260B51B6CA1D600FF07C0 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		FB8260B61B6CA1D600FF07C0 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		FB8260BC1B6CDE4600FF07C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB59C6F71B637D9100521760 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB59C72A1B63954900521760 /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB59C7101B637D9100521760 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB59C6F11B637D9100521760 = {
+			isa = PBXGroup;
+			children = (
+				FB59C7291B63954900521760 /* CoreLocation.framework */,
+				FB59C6FC1B637D9100521760 /* NightTime */,
+				FB59C7161B637D9100521760 /* NightTimeTests */,
+				FB59C6FB1B637D9100521760 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB59C6FB1B637D9100521760 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB59C6FA1B637D9100521760 /* NightTime.app */,
+				FB59C7131B637D9100521760 /* NightTimeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB59C6FC1B637D9100521760 /* NightTime */ = {
+			isa = PBXGroup;
+			children = (
+				84360B5F1B7A6772003F4626 /* UIColor+HexColors.h */,
+				84360B601B7A6772003F4626 /* UIColor+HexColors.m */,
+				FB4CBFBC1B75F9400035C659 /* Venue.h */,
+				FB4CBFBD1B75F9400035C659 /* Venue.m */,
+				FB8260B51B6CA1D600FF07C0 /* Location.h */,
+				FB8260B61B6CA1D600FF07C0 /* Location.m */,
+				FB8260B21B6C9EA300FF07C0 /* VenuesModel.h */,
+				FB8260B31B6C9EA300FF07C0 /* VenuesModel.m */,
+				8407461E1B63E2D500FD4477 /* DetailViewController.h */,
+				8407461F1B63E2D500FD4477 /* DetailViewController.m */,
+				84CDA3571B6FAD88009C220C /* TableViewCell.h */,
+				84CDA3581B6FAD88009C220C /* TableViewCell.m */,
+				FB59C7231B637DD100521760 /* TableViewController.h */,
+				FB59C7241B637DD100521760 /* TableViewController.m */,
+				FB59C7011B637D9100521760 /* AppDelegate.h */,
+				FB59C7021B637D9100521760 /* AppDelegate.m */,
+				FB59C7041B637D9100521760 /* ViewController.h */,
+				FB59C7051B637D9100521760 /* ViewController.m */,
+				FB8260BB1B6CDE4600FF07C0 /* Main.storyboard */,
+				FB59C70A1B637D9100521760 /* Images.xcassets */,
+				84EA300D1B779BC000573126 /* SF-UI-Text-Light.otf */,
+				84EA300E1B779BC000573126 /* SF-UI-Text-Regular.otf */,
+				84CDA35D1B6FDF06009C220C /* SF-UI-Display-Thin.otf */,
+				8420A5691B6BD45500009AAD /* SF-UI-Display-Bold.otf */,
+				FB59C70C1B637D9100521760 /* LaunchScreen.xib */,
+				FB59C6FD1B637D9100521760 /* Supporting Files */,
+			);
+			path = NightTime;
+			sourceTree = "<group>";
+		};
+		FB59C6FD1B637D9100521760 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB59C6FE1B637D9100521760 /* Info.plist */,
+				FB59C6FF1B637D9100521760 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB59C7161B637D9100521760 /* NightTimeTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB59C7191B637D9100521760 /* NightTimeTests.m */,
+				FB59C7171B637D9100521760 /* Supporting Files */,
+			);
+			path = NightTimeTests;
+			sourceTree = "<group>";
+		};
+		FB59C7171B637D9100521760 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB59C7181B637D9100521760 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB59C6F91B637D9100521760 /* NightTime */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB59C71D1B637D9100521760 /* Build configuration list for PBXNativeTarget "NightTime" */;
+			buildPhases = (
+				FB59C6F61B637D9100521760 /* Sources */,
+				FB59C6F71B637D9100521760 /* Frameworks */,
+				FB59C6F81B637D9100521760 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NightTime;
+			productName = NightTime;
+			productReference = FB59C6FA1B637D9100521760 /* NightTime.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB59C7121B637D9100521760 /* NightTimeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB59C7201B637D9100521760 /* Build configuration list for PBXNativeTarget "NightTimeTests" */;
+			buildPhases = (
+				FB59C70F1B637D9100521760 /* Sources */,
+				FB59C7101B637D9100521760 /* Frameworks */,
+				FB59C7111B637D9100521760 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB59C7151B637D9100521760 /* PBXTargetDependency */,
+			);
+			name = NightTimeTests;
+			productName = NightTimeTests;
+			productReference = FB59C7131B637D9100521760 /* NightTimeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB59C6F21B637D9100521760 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Ерфилов Виктор";
+				TargetAttributes = {
+					FB59C6F91B637D9100521760 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 62L8D25XPU;
+					};
+					FB59C7121B637D9100521760 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = FB59C6F91B637D9100521760;
+					};
+				};
+			};
+			buildConfigurationList = FB59C6F51B637D9100521760 /* Build configuration list for PBXProject "NightTime" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB59C6F11B637D9100521760;
+			productRefGroup = FB59C6FB1B637D9100521760 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB59C6F91B637D9100521760 /* NightTime */,
+				FB59C7121B637D9100521760 /* NightTimeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB59C6F81B637D9100521760 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB59C70E1B637D9100521760 /* LaunchScreen.xib in Resources */,
+				8420A56A1B6BD45500009AAD /* SF-UI-Display-Bold.otf in Resources */,
+				FB59C70B1B637D9100521760 /* Images.xcassets in Resources */,
+				FB8260BD1B6CDE4600FF07C0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB59C7111B637D9100521760 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB59C6F61B637D9100521760 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				840746201B63E2D500FD4477 /* DetailViewController.m in Sources */,
+				FB8260B71B6CA1D600FF07C0 /* Location.m in Sources */,
+				FB59C7061B637D9100521760 /* ViewController.m in Sources */,
+				84360B611B7A6772003F4626 /* UIColor+HexColors.m in Sources */,
+				FB4CBFBE1B75F9400035C659 /* Venue.m in Sources */,
+				FB59C7031B637D9100521760 /* AppDelegate.m in Sources */,
+				FB8260B41B6C9EA300FF07C0 /* VenuesModel.m in Sources */,
+				84CDA3591B6FAD88009C220C /* TableViewCell.m in Sources */,
+				FB59C7001B637D9100521760 /* main.m in Sources */,
+				FB59C7251B637DD100521760 /* TableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB59C70F1B637D9100521760 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB59C71A1B637D9100521760 /* NightTimeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB59C7151B637D9100521760 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB59C6F91B637D9100521760 /* NightTime */;
+			targetProxy = FB59C7141B637D9100521760 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB59C70C1B637D9100521760 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB59C70D1B637D9100521760 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		FB8260BB1B6CDE4600FF07C0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB8260BC1B6CDE4600FF07C0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB59C71B1B637D9100521760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FB59C71C1B637D9100521760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB59C71E1B637D9100521760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = NightTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FB59C71F1B637D9100521760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = NightTime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FB59C7211B637D9100521760 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NightTimeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NightTime.app/NightTime";
+			};
+			name = Debug;
+		};
+		FB59C7221B637D9100521760 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NightTimeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NightTime.app/NightTime";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB59C6F51B637D9100521760 /* Build configuration list for PBXProject "NightTime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB59C71B1B637D9100521760 /* Debug */,
+				FB59C71C1B637D9100521760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB59C71D1B637D9100521760 /* Build configuration list for PBXNativeTarget "NightTime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB59C71E1B637D9100521760 /* Debug */,
+				FB59C71F1B637D9100521760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB59C7201B637D9100521760 /* Build configuration list for PBXNativeTarget "NightTimeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB59C7211B637D9100521760 /* Debug */,
+				FB59C7221B637D9100521760 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB59C6F21B637D9100521760 /* Project object */;
+}
