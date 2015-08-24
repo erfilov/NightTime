@@ -26,30 +26,26 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Table View Controller-->
+        <!--NightTime-->
         <scene sceneID="eYX-mo-kCW">
             <objects>
-                <tableViewController id="732-Qv-Fph" customClass="TableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="117" sectionHeaderHeight="22" sectionFooterHeight="22" id="2qJ-nz-Lh0">
+                <tableViewController id="732-Qv-Fph" customClass="VenueTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="105" sectionHeaderHeight="22" sectionFooterHeight="22" id="2qJ-nz-Lh0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="MSm-uI-yYR">
-                            <rect key="frame" x="0.0" y="186" width="600" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </activityIndicatorView>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="venueCell" rowHeight="100" id="cQe-E1-Eka" customClass="TableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="600" height="100"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="venueCell" rowHeight="105" id="cQe-E1-Eka" customClass="VenueTableViewCell">
+                                <rect key="frame" x="0.0" y="86" width="600" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cQe-E1-Eka" id="WiY-UB-kFu">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRq-o7-1Ly">
                                             <rect key="frame" x="96" y="8" width="33" height="20"/>
                                             <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="16"/>
-                                            <color key="textColor" red="0.18823529411764706" green="0.33333333333333331" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.18823529411764706" green="0.33333333333333331" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImage" translatesAutoresizingMaskIntoConstraints="NO" id="8up-GU-Gne">
@@ -117,7 +113,7 @@
                                     <outlet property="rating" destination="yP4-LT-jKH" id="ALt-hc-pOK"/>
                                     <outlet property="ratingRect" destination="5Id-do-wg1" id="rZa-h6-02C"/>
                                     <outlet property="titleVenue" destination="fRq-o7-1Ly" id="fdh-OG-FjP"/>
-                                    <segue destination="AYQ-e5-pYN" kind="show" identifier="showDetail" id="mNE-0R-xGs"/>
+                                    <segue destination="jYM-ch-8MK" kind="show" identifier="showDetail" id="Rfj-rn-RyL"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -126,104 +122,18 @@
                             <outlet property="delegate" destination="732-Qv-Fph" id="Fk3-Uk-Tun"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="O0i-vL-cdx">
-                        <barButtonItem key="backBarButtonItem" title=" " id="ZHR-cc-wFO"/>
+                    <navigationItem key="navigationItem" title="NightTime" id="O0i-vL-cdx">
+                        <barButtonItem key="backBarButtonItem" title=" " id="vbl-qY-02C"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="0MF-WH-vpJ">
+                            <connections>
+                                <action selector="refreshTableView:" destination="732-Qv-Fph" id="599-m6-GYR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="activityIndicator" destination="MSm-uI-yYR" id="WzI-y3-GwZ"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYV-RV-8nB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="572" y="443"/>
-        </scene>
-        <!--Detail View Controller-->
-        <scene sceneID="ILd-0c-bNq">
-            <objects>
-                <viewController id="AYQ-e5-pYN" customClass="DetailViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="THp-6o-QYw"/>
-                        <viewControllerLayoutGuide type="bottom" id="JnQ-B9-fTl"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="mJp-U7-tDu">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FzK-KI-aci">
-                                <rect key="frame" x="0.0" y="264" width="600" height="336"/>
-                            </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ng-AH-OGS">
-                                <rect key="frame" x="28" y="97" width="53" height="17"/>
-                                <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDz-9N-b00">
-                                <rect key="frame" x="28" y="148" width="28" height="14"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="11"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="+7 999 111 23 43" translatesAutoresizingMaskIntoConstraints="NO" id="h4q-VW-X7O">
-                                <rect key="frame" x="28" y="162" width="219" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="11"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70J-fl-JTW">
-                                <rect key="frame" x="28" y="73" width="41" height="24"/>
-                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FC-EL-Rsq">
-                                <rect key="frame" x="28" y="134" width="28" height="14"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="11"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="http://site.org               " translatesAutoresizingMaskIntoConstraints="NO" id="T9P-DH-ADj">
-                                <rect key="frame" x="28" y="184" width="444" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="11"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="h4q-VW-X7O" firstAttribute="top" secondItem="fDz-9N-b00" secondAttribute="bottom" id="0VR-fO-s9o"/>
-                            <constraint firstItem="70J-fl-JTW" firstAttribute="leading" secondItem="5Ng-AH-OGS" secondAttribute="leading" id="13I-Cm-Aqb"/>
-                            <constraint firstItem="7FC-EL-Rsq" firstAttribute="leading" secondItem="fDz-9N-b00" secondAttribute="leading" id="9QE-6s-nBE"/>
-                            <constraint firstItem="70J-fl-JTW" firstAttribute="top" secondItem="THp-6o-QYw" secondAttribute="bottom" constant="9" id="BsK-qt-kfn"/>
-                            <constraint firstItem="70J-fl-JTW" firstAttribute="leading" secondItem="mJp-U7-tDu" secondAttribute="leadingMargin" constant="8" id="G8h-Eb-NHa"/>
-                            <constraint firstItem="T9P-DH-ADj" firstAttribute="top" secondItem="h4q-VW-X7O" secondAttribute="bottom" constant="-8" id="GlE-yF-oxs"/>
-                            <constraint firstItem="h4q-VW-X7O" firstAttribute="leading" secondItem="fDz-9N-b00" secondAttribute="leading" id="Rbd-WK-GEO"/>
-                            <constraint firstItem="5Ng-AH-OGS" firstAttribute="leading" secondItem="7FC-EL-Rsq" secondAttribute="leading" id="SEf-US-DPb"/>
-                            <constraint firstItem="5Ng-AH-OGS" firstAttribute="top" secondItem="70J-fl-JTW" secondAttribute="bottom" id="VP3-xD-V0e"/>
-                            <constraint firstItem="7FC-EL-Rsq" firstAttribute="top" secondItem="5Ng-AH-OGS" secondAttribute="bottom" constant="20" id="afm-mu-sKk"/>
-                            <constraint firstItem="FzK-KI-aci" firstAttribute="top" secondItem="T9P-DH-ADj" secondAttribute="bottom" constant="50" id="cW3-NQ-yJG"/>
-                            <constraint firstItem="T9P-DH-ADj" firstAttribute="leading" secondItem="h4q-VW-X7O" secondAttribute="leading" id="gWE-uP-GD5"/>
-                            <constraint firstItem="fDz-9N-b00" firstAttribute="top" secondItem="7FC-EL-Rsq" secondAttribute="bottom" id="iQa-rI-xku"/>
-                            <constraint firstItem="JnQ-B9-fTl" firstAttribute="top" secondItem="FzK-KI-aci" secondAttribute="bottom" id="pmi-UE-g0j"/>
-                            <constraint firstItem="FzK-KI-aci" firstAttribute="leading" secondItem="mJp-U7-tDu" secondAttribute="leading" id="tQ3-U0-Z56"/>
-                            <constraint firstAttribute="trailing" secondItem="FzK-KI-aci" secondAttribute="trailing" id="yw2-lO-2yB"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="addressVenue" destination="7FC-EL-Rsq" id="9aL-pn-bj3"/>
-                        <outlet property="categoryVenue" destination="5Ng-AH-OGS" id="pzG-fv-Sv5"/>
-                        <outlet property="cityVenue" destination="fDz-9N-b00" id="Oeo-CR-beC"/>
-                        <outlet property="mapView" destination="FzK-KI-aci" id="Ofk-eb-RfN"/>
-                        <outlet property="phoneNumber" destination="h4q-VW-X7O" id="sK6-jW-aD4"/>
-                        <outlet property="titleVenue" destination="70J-fl-JTW" id="QBz-mY-ezP"/>
-                        <outlet property="websiteURL" destination="T9P-DH-ADj" id="KFf-SG-7bO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LKg-4B-a5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1264" y="443"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LgC-CI-NWn">
@@ -242,6 +152,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BlE-cz-naj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-240" y="443"/>
+        </scene>
+        <!--Venue Detail View Controller-->
+        <scene sceneID="2VZ-p3-KaB">
+            <objects>
+                <viewController id="jYM-ch-8MK" customClass="VenueDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DYJ-t6-JWK"/>
+                        <viewControllerLayoutGuide type="bottom" id="mLn-0Z-6Ka"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Tru-ch-JLo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pvQ-d2-t4t">
+                                <rect key="frame" x="0.0" y="276" width="600" height="324"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pD-Zh-ag0">
+                                <rect key="frame" x="28" y="97" width="53" height="17"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s01-px-VJj">
+                                <rect key="frame" x="28" y="151" width="36" height="17"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="+7 999 111 23 43" translatesAutoresizingMaskIntoConstraints="NO" id="5Ge-7a-eq1">
+                                <rect key="frame" x="28" y="168" width="122" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfU-1r-aOX">
+                                <rect key="frame" x="28" y="73" width="41" height="24"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgZ-6G-FAq">
+                                <rect key="frame" x="28" y="134" width="36" height="17"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="http://site.org               " translatesAutoresizingMaskIntoConstraints="NO" id="L01-4P-6U4">
+                                <rect key="frame" x="28" y="193" width="145" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YfU-1r-aOX" firstAttribute="leading" secondItem="6pD-Zh-ag0" secondAttribute="leading" id="49x-wD-O0g"/>
+                            <constraint firstItem="6pD-Zh-ag0" firstAttribute="leading" secondItem="zgZ-6G-FAq" secondAttribute="leading" id="4bd-A3-mJe"/>
+                            <constraint firstItem="YfU-1r-aOX" firstAttribute="leading" secondItem="Tru-ch-JLo" secondAttribute="leadingMargin" constant="8" id="Aoz-4j-AFs"/>
+                            <constraint firstItem="6pD-Zh-ag0" firstAttribute="top" secondItem="YfU-1r-aOX" secondAttribute="bottom" id="C8G-3n-06M"/>
+                            <constraint firstItem="s01-px-VJj" firstAttribute="top" secondItem="zgZ-6G-FAq" secondAttribute="bottom" id="Egh-bk-UQI"/>
+                            <constraint firstItem="YfU-1r-aOX" firstAttribute="top" secondItem="DYJ-t6-JWK" secondAttribute="bottom" constant="9" id="Ess-vE-Qnx"/>
+                            <constraint firstItem="mLn-0Z-6Ka" firstAttribute="top" secondItem="pvQ-d2-t4t" secondAttribute="bottom" id="F0q-7b-WBd"/>
+                            <constraint firstItem="pvQ-d2-t4t" firstAttribute="top" secondItem="L01-4P-6U4" secondAttribute="bottom" constant="50" id="LG7-CO-dHr"/>
+                            <constraint firstItem="zgZ-6G-FAq" firstAttribute="leading" secondItem="s01-px-VJj" secondAttribute="leading" id="Lod-8J-OrR"/>
+                            <constraint firstItem="L01-4P-6U4" firstAttribute="top" secondItem="5Ge-7a-eq1" secondAttribute="bottom" constant="-8" id="ePG-sw-kE5"/>
+                            <constraint firstItem="L01-4P-6U4" firstAttribute="leading" secondItem="5Ge-7a-eq1" secondAttribute="leading" id="gtn-Bz-O8r"/>
+                            <constraint firstItem="zgZ-6G-FAq" firstAttribute="top" secondItem="6pD-Zh-ag0" secondAttribute="bottom" constant="20" id="h9o-4J-yZr"/>
+                            <constraint firstAttribute="trailing" secondItem="pvQ-d2-t4t" secondAttribute="trailing" id="jXX-dW-TgH"/>
+                            <constraint firstItem="5Ge-7a-eq1" firstAttribute="leading" secondItem="s01-px-VJj" secondAttribute="leading" id="uYI-RS-ZyM"/>
+                            <constraint firstItem="5Ge-7a-eq1" firstAttribute="top" secondItem="s01-px-VJj" secondAttribute="bottom" id="yaK-g8-kdp"/>
+                            <constraint firstItem="pvQ-d2-t4t" firstAttribute="leading" secondItem="Tru-ch-JLo" secondAttribute="leading" id="z5V-KU-h87"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addressVenue" destination="zgZ-6G-FAq" id="QxI-kl-Keh"/>
+                        <outlet property="categoryVenue" destination="6pD-Zh-ag0" id="0AP-Yc-diX"/>
+                        <outlet property="cityVenue" destination="s01-px-VJj" id="a4e-ao-HE3"/>
+                        <outlet property="mapView" destination="pvQ-d2-t4t" id="9ec-I2-AVP"/>
+                        <outlet property="phoneNumber" destination="5Ge-7a-eq1" id="UPv-Dg-zGF"/>
+                        <outlet property="titleVenue" destination="YfU-1r-aOX" id="4Ba-CO-R25"/>
+                        <outlet property="websiteURL" destination="L01-4P-6U4" id="1VH-fy-6MK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B3Y-BY-ym0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1271" y="443"/>
         </scene>
     </scenes>
     <resources>

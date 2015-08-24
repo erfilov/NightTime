@@ -2,7 +2,7 @@
 //  Location.h
 //  NightTime
 //
-//  Created by Величко Евгений on 01.08.15.
+//  Created by Vik on 01.08.15.
 //  Copyright (c) 2015 Ерфилов Виктор. All rights reserved.
 //
 

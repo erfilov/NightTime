@@ -2,11 +2,13 @@
 //  AppDelegate.m
 //  NightTime
 //
-//  Created by Величко Евгений on 25.07.15.
+//  Created by Vik on 25.07.15.
 //  Copyright (c) 2015 Ерфилов Виктор. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "AppearanceCustomization.h"
+#import "FoursquareAPI.h"
 
 @interface AppDelegate ()
 
@@ -16,13 +18,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [[AppearanceCustomization new] applyGeneralCustomizations];
+    [self configureUrlCache];
     
-    NSURLCache *cache = [NSURLCache sharedURLCache];
-    cache.diskCapacity = 0;
-    cache.memoryCapacity = 0;
     
     return YES;
+}
+
+- (void)configureUrlCache {
+//    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:8 * 1024 * 1024
+//                                                         diskCapacity:50 * 1024 * 1024
+//                                                             diskPath:nil];
+//    [NSURLCache setSharedURLCache:URLCache];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

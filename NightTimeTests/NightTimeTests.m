@@ -2,7 +2,7 @@
 //  NightTimeTests.m
 //  NightTimeTests
 //
-//  Created by Величко Евгений on 25.07.15.
+//  Created by Vik on 25.07.15.
 //  Copyright (c) 2015 Ерфилов Виктор. All rights reserved.
 //
 
