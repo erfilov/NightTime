@@ -23,13 +23,15 @@ typedef void(^NetworkRequestCompletionBlock)(id result, NSError *error);
 @property (strong, nonatomic) NSString *version;
 @property (strong, nonatomic) AFHTTPSessionManager *manager;
 @property (strong, nonatomic) dispatch_group_t group;
+@property (strong, nonatomic) NSURLSession *session;
 
 
 
 
 - (void)updateVenuesFromCurrentLocation:(CLLocation *)location completionBlock:(NetworkRequestCompletionBlock)completionBlock;
 - (NSArray *)parsePhotoFromArray:(NSArray *)array;
-- (void)getInfoFromVenues:(NSArray *)venues completionBlock:(NetworkRequestCompletionBlock)completionBlock;
+- (void)getInfoFromVenue:(Venue *)venue completionBlock:(NetworkRequestCompletionBlock)completionBlock;
+
 - (NSArray *)createArrayVenues:(NSDictionary *)responseDictionary;
 - (void)showAlertWhenNoInternetConnection;
 - (void)showAlertWhenNoVenues;

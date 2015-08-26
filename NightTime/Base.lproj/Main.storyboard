@@ -58,10 +58,10 @@
                                         <view contentMode="scaleToFill" restorationIdentifier="ratingLabel" translatesAutoresizingMaskIntoConstraints="NO" id="5Id-do-wg1">
                                             <rect key="frame" x="562" y="8" width="30" height="30"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yP4-LT-jKH">
-                                                    <rect key="frame" x="3" y="8" width="25" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yP4-LT-jKH">
+                                                    <rect key="frame" x="10" y="8" width="11" height="15"/>
                                                     <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -124,7 +124,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="NightTime" id="O0i-vL-cdx">
                         <barButtonItem key="backBarButtonItem" title=" " id="vbl-qY-02C"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="0MF-WH-vpJ">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="refresh" id="0MF-WH-vpJ">
                             <connections>
                                 <action selector="refreshTableView:" destination="732-Qv-Fph" id="599-m6-GYR"/>
                             </connections>

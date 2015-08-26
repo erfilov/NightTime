@@ -7,12 +7,16 @@
 //
 
 #import "VenueDetailViewController.h"
-#import "Venue.h"
-@import UIKit;
-@import MapKit;
-#import "UIColor+HexColors.h"
 
-@interface VenueDetailViewController ()
+
+@interface Venue (MKAnnotation) <MKAnnotation>
+@property (strong, nonatomic) CLLocation *location;
+@property (strong, nonatomic) NSString *category;
+
+
+@end
+
+@interface VenueDetailViewController () <MKMapViewDelegate>
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UILabel *titleVenue;
 @property (strong, nonatomic) IBOutlet UILabel *categoryVenue;

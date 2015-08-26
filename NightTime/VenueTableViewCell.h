@@ -28,4 +28,5 @@ typedef void(^NetworkRequestCompletionBlock)(id result, NSError *error);
 
 - (void)loadImageFromURL:(NSURL *)url venue:(Venue *)venue withBlock:(NetworkRequestCompletionBlock)completionBlock;
 
+- (void)loadImageFromURL:(NSURL *)url manager:(AFHTTPSessionManager *)manager withBlock:(NetworkRequestCompletionBlock)completionBlock;
 @end

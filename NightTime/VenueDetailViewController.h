@@ -8,15 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @import CoreLocation;
-@class Venue;
+#import "Venue.h"
+@import UIKit;
+@import MapKit;
+#import "UIColor+HexColors.h"
 
 @interface VenueDetailViewController : UIViewController
-
-@property (strong, nonatomic) CLLocation *location;
-@property (strong, nonatomic) NSString *category;
-
-
 @property (strong, nonatomic) Venue *venue;
-
-
 @end

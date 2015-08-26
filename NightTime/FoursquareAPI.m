@@ -27,7 +27,6 @@
         
         _baseUrl = [NSURL URLWithString:@"https://api.foursquare.com/v2/"];
         _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:_baseUrl];
-        
         _group = dispatch_group_create();
 
         
@@ -41,17 +40,26 @@
     
     NSString *venueListUrl = [NSString stringWithFormat:@"venues/search?categoryId=4d4b7105d754a06376d81259&ll=%f,%f&client_id=%@&client_secret=%@&v=%@&radius=%ld", location.coordinate.latitude, location.coordinate.longitude, self.clientID, self.clientSecret, self.version, (long)self.radius];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseUrl.description, venueListUrl]];
-    [[self.manager dataTaskWithRequest:[NSURLRequest requestWithURL:url] completionHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError * _Nonnull error) {
-        if (error != nil) {
-            completionBlock(nil, error);
-            return;
-        }
-        NSDictionary *responseDictionary = responseObject[@"response"];
-        NSArray *venues = [self createArrayVenues:responseDictionary];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completionBlock(venues, nil);
-        });
-    }] resume];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[self.manager dataTaskWithRequest:[NSURLRequest requestWithURL:url] completionHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError * _Nonnull error) {
+            if (error != nil) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completionBlock(nil, error);
+                    return;
+                });
+            }
+            if ([responseObject isKindOfClass:[NSDictionary class]] && responseObject != nil) {
+                NSDictionary *responseDictionary = responseObject[@"response"];
+                NSArray *venues = [self createArrayVenues:responseDictionary];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completionBlock(venues, nil);
+                });
+            }
+        }] resume];
+
+        
+    });
 }
 
 - (NSArray *)parsePhotoFromArray:(NSArray *)array {
@@ -73,65 +81,72 @@
     return [results copy];
 }
 
-- (void)getInfoFromVenues:(NSArray *)venues completionBlock:(NetworkRequestCompletionBlock)completionBlock{
+
+
+- (void)getInfoFromVenue:(Venue *)venue completionBlock:(NetworkRequestCompletionBlock)completionBlock{
     
-    for (int i = 0; i < [venues count]; i++) {
-        Venue *venue = [venues objectAtIndex:i];
-        dispatch_group_async(self.group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSString *venuePhotoUrl = [NSString stringWithFormat:@"venues/%@/photos?client_id=%@&client_secret=%@&v=%@&limit=10",
-                                       venue.venueID, self.clientID, self.clientSecret, self.version];
-            [[self.manager dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseUrl.description, venuePhotoUrl]]]
-             completionHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError * _Nonnull error) {
-                                 
-                                 if (error != nil) {
+
+        NSString *venuePhotoUrl = [NSString stringWithFormat:@"venues/%@/photos?client_id=%@&client_secret=%@&v=%@&limit=10",
+                                   venue.venueID, self.clientID, self.clientSecret, self.version];
+        
+        dispatch_group_enter(self.group);
+        [[self.manager dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseUrl.description, venuePhotoUrl]]]
+                         completionHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError * _Nonnull error) {
+                             
+                             if (error != nil) {
+                                 dispatch_async(dispatch_get_main_queue(), ^{
                                      completionBlock(nil, error);
                                      return;
-                                 }
-                                 if (responseObject != nil) {
-                                     
-                                     NSDictionary *responseDictionary = responseObject[@"response"];
-                                     NSMutableArray *items = [NSMutableArray new];
-                                     if ([responseDictionary[@"photos"] isKindOfClass:[NSDictionary class]] && responseDictionary[@"photos"] != nil) {
-                                         NSDictionary *photos = responseDictionary[@"photos"];
-                                         if ([photos[@"items"] isKindOfClass:[NSArray class]] && photos[@"items"] != nil) {
-                                             items = photos[@"items"];
-                                         }
+                                 });
+                                 
+                             }
+                             if ([responseObject isKindOfClass:[NSDictionary class]] && responseObject != nil) {
+                                 
+                                 NSDictionary *responseDictionary = responseObject[@"response"];
+                                 NSMutableArray *items = [NSMutableArray new];
+                                 if ([responseDictionary[@"photos"] isKindOfClass:[NSDictionary class]] && responseDictionary[@"photos"] != nil) {
+                                     NSDictionary *photos = responseDictionary[@"photos"];
+                                     if ([photos[@"items"] isKindOfClass:[NSArray class]] && photos[@"items"] != nil) {
+                                         items = photos[@"items"];
                                      }
-                                     venue.photos = [self parsePhotoFromArray:[items copy]];
-                                 } else {
-                                     [self showAlertWhenParsingError];
-                                     return;
                                  }
-                             }] resume];
-        });
+                                 venue.photos = [self parsePhotoFromArray:[items copy]];
+                             } else {
+                                 [self showAlertWhenParsingError];
+                                 return;
+                             }
+                         }] resume];
+        dispatch_group_leave(self.group);
         
-        dispatch_group_async(self.group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSString *venueInfoUrl = [NSString stringWithFormat:@"venues/%@?client_id=%@&client_secret=%@&v=%@", venue.venueID, self.clientID, self.clientSecret, self.version];
-            [[self.manager dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseUrl.description, venueInfoUrl]]]
-                             completionHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError * _Nonnull error) {
-                                 
-                                 if (error != nil) {
+        NSString *venueInfoUrl = [NSString stringWithFormat:@"venues/%@?client_id=%@&client_secret=%@&v=%@", venue.venueID, self.clientID, self.clientSecret, self.version];
+        dispatch_group_enter(self.group);
+        [[self.manager dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseUrl.description, venueInfoUrl]]]
+                         completionHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError * _Nonnull error) {
+                             
+                             if (error != nil) {
+                                 dispatch_async(dispatch_get_main_queue(), ^{
                                      completionBlock(nil, error);
                                      return;
-                                 }
-                                 if (responseObject != nil) {
-                                     NSDictionary *responseDictionary = responseObject[@"response"];
-                                     NSDictionary *venueInfo = responseDictionary[@"venue"];
-                                     NSDictionary *price = venueInfo[@"price"];
-                                     venue.price = price[@"message"] != nil ? price[@"message"] : @"";
-                                     venue.rating = venueInfo[@"rating"];
-                                     venue.ratingColor = [UIColor colorWithHexString:venueInfo[@"ratingColor"]];
-                                 } else {
-                                     [self showAlertWhenParsingError];
-                                     return;
-                                 }
-                             }] resume];
-        });
-        
-    }
+                                 });
+                                 
+                                 return;
+                             }
+                             if ([responseObject isKindOfClass:[NSDictionary class]] && responseObject != nil) {
+                                 NSDictionary *responseDictionary = responseObject[@"response"];
+                                 NSDictionary *venueInfo = responseDictionary[@"venue"];
+                                 NSDictionary *price = venueInfo[@"price"];
+                                 venue.price = price[@"message"] != nil ? price[@"message"] : @"";
+                                 venue.rating = venueInfo[@"rating"];
+                                 venue.ratingColor = [UIColor colorWithHexString:venueInfo[@"ratingColor"]];
+                             } else {
+                                 [self showAlertWhenParsingError];
+                                 return;
+                             }
+                         }] resume];
+        dispatch_group_leave(self.group);
     
-    dispatch_group_notify(self.group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        completionBlock(venues, nil);
+    dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
+        completionBlock(venue, nil);
     });
     
 }
@@ -153,8 +168,7 @@
         NSString *venueID = venues[@"id"];
         NSDictionary *contact = venues[@"contact"];
         
-        
-        Venue *venue = [[Venue alloc] init];
+        __block Venue *venue = [[Venue alloc] init];
         venue.location = locationVenue;
         venue.title = titleVenue;
         venue.category = categoryVenue;
@@ -164,14 +178,15 @@
         venue.phoneVenue = contact[@"formattedPhone"] == nil ? @"" : contact[@"formattedPhone"];
         venue.websiteUrl = venues[@"url"] == nil ? @"" : venues[@"url"];
         
+        [self getInfoFromVenue:venue completionBlock:^(id result, NSError *error) {
+            venue = result;
+        }];
         [results addObject:venue];
-        
     }
     
-    [self getInfoFromVenues:results completionBlock:^(id result, NSError *error) {
-        results = result;
-    }];
-    return [results copy];
+    
+    
+    return results;
 }
 
 #pragma mark - Show Alert Methods
