@@ -13,6 +13,8 @@
 		8441B4F91B88ECCF0027C8E1 /* AppearanceCustomization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441B4F81B88ECCF0027C8E1 /* AppearanceCustomization.m */; };
 		8441B4FD1B88EDB20027C8E1 /* FoursquareAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441B4FC1B88EDB20027C8E1 /* FoursquareAPI.m */; };
 		8441B5011B88EDEB0027C8E1 /* VenueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441B5001B88EDEB0027C8E1 /* VenueTableViewCell.m */; };
+		84AE42EC1B8F7485001012E5 /* NSNumber+Foursquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE42EB1B8F7485001012E5 /* NSNumber+Foursquare.m */; };
+		84AE43151B90D43D001012E5 /* NSObject+Associating.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE43141B90D43D001012E5 /* NSObject+Associating.m */; };
 		F58A16157813B3951AC8BB6A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C120C1BE13116EF8D9C8E83 /* libPods.a */; };
 		FB4CBFBE1B75F9400035C659 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4CBFBD1B75F9400035C659 /* Venue.m */; };
 		FB59C7001B637D9100521760 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59C6FF1B637D9100521760 /* main.m */; };
@@ -50,6 +52,10 @@
 		8441B4FC1B88EDB20027C8E1 /* FoursquareAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareAPI.m; sourceTree = "<group>"; };
 		8441B4FF1B88EDEB0027C8E1 /* VenueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueTableViewCell.h; sourceTree = "<group>"; };
 		8441B5001B88EDEB0027C8E1 /* VenueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueTableViewCell.m; sourceTree = "<group>"; };
+		84AE42EA1B8F7485001012E5 /* NSNumber+Foursquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Foursquare.h"; sourceTree = "<group>"; };
+		84AE42EB1B8F7485001012E5 /* NSNumber+Foursquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Foursquare.m"; sourceTree = "<group>"; };
+		84AE43131B90D43D001012E5 /* NSObject+Associating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Associating.h"; sourceTree = "<group>"; };
+		84AE43141B90D43D001012E5 /* NSObject+Associating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Associating.m"; sourceTree = "<group>"; };
 		84CDA35D1B6FDF06009C220C /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
 		84EA300D1B779BC000573126 /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
 		84EA300E1B779BC000573126 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
@@ -119,8 +125,12 @@
 		8441B4FA1B88ED830027C8E1 /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				84AE42EA1B8F7485001012E5 /* NSNumber+Foursquare.h */,
+				84AE42EB1B8F7485001012E5 /* NSNumber+Foursquare.m */,
 				84360B5F1B7A6772003F4626 /* UIColor+HexColors.h */,
 				84360B601B7A6772003F4626 /* UIColor+HexColors.m */,
+				84AE43131B90D43D001012E5 /* NSObject+Associating.h */,
+				84AE43141B90D43D001012E5 /* NSObject+Associating.m */,
 			);
 			name = Utilites;
 			sourceTree = "<group>";
@@ -373,9 +383,11 @@
 				FB8260B71B6CA1D600FF07C0 /* Location.m in Sources */,
 				8441B4F91B88ECCF0027C8E1 /* AppearanceCustomization.m in Sources */,
 				84360B611B7A6772003F4626 /* UIColor+HexColors.m in Sources */,
+				84AE43151B90D43D001012E5 /* NSObject+Associating.m in Sources */,
 				8441B5011B88EDEB0027C8E1 /* VenueTableViewCell.m in Sources */,
 				FB4CBFBE1B75F9400035C659 /* Venue.m in Sources */,
 				FB59C7031B637D9100521760 /* AppDelegate.m in Sources */,
+				84AE42EC1B8F7485001012E5 /* NSNumber+Foursquare.m in Sources */,
 				FB59C7001B637D9100521760 /* main.m in Sources */,
 				FB59C7251B637DD100521760 /* VenueTableViewController.m in Sources */,
 			);

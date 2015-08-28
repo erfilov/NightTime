@@ -9,6 +9,7 @@
 
 
 #import "VenueTableViewController.h"
+#import "NSObject+Associating.h"
 
 
 
@@ -34,9 +35,6 @@
             
         }];
     }];
-    
-    
-
 }
 
 
@@ -57,17 +55,19 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         cell.venue = [self.venues objectAtIndex:indexPath.row];
-        
         if (cell.venue.photos) {
-            NSURL *imageURL = [NSURL URLWithString:[cell.venue.photos firstObject]];
-            
-            [cell loadImageFromURL:imageURL manager:self.api.manager withBlock:^(id result, NSError *error) {
-                cell.photoVenue.image = result;
-                
-            }];
-
-
-            
+            NSString *imageURL = [cell.venue.photos firstObject];
+            NSLog(@"%@", imageURL);
+            cell.photoVenue.associatedObject = imageURL;
+            [self.api.operationManager GET:imageURL
+                                parameters:nil
+                                   success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+                                       if ([cell.photoVenue.associatedObject isEqualToString:imageURL]) {
+                                           cell.photoVenue.image = responseObject;                                       }
+                                   }
+                                   failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+                                       NSLog(@"Failed with error %@.", error);
+                                   }];
         }
     });
 

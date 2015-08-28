@@ -22,7 +22,6 @@
         </mutableArray>
         <mutableArray key="SF-UI-Text-Regular.otf">
             <string>SFUIText-Regular</string>
-            <string>SFUIText-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -74,14 +73,8 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqx-Jx-Mse">
-                                            <rect key="frame" x="96" y="32" width="57" height="16"/>
+                                            <rect key="frame" x="96" y="36" width="458" height="16"/>
                                             <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="13"/>
-                                            <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCH-iC-DmL">
-                                            <rect key="frame" x="96" y="52" width="29" height="15"/>
-                                            <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="12"/>
                                             <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -89,14 +82,13 @@
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="5Id-do-wg1" secondAttribute="trailing" id="2A2-z4-gHp"/>
                                         <constraint firstItem="8up-GU-Gne" firstAttribute="centerY" secondItem="WiY-UB-kFu" secondAttribute="centerY" id="8IJ-mJ-Hko"/>
-                                        <constraint firstItem="Tqx-Jx-Mse" firstAttribute="top" secondItem="fRq-o7-1Ly" secondAttribute="bottom" constant="4" id="IUD-1U-2MW"/>
+                                        <constraint firstItem="Tqx-Jx-Mse" firstAttribute="top" secondItem="fRq-o7-1Ly" secondAttribute="bottom" constant="8" id="IUD-1U-2MW"/>
+                                        <constraint firstItem="5Id-do-wg1" firstAttribute="leading" secondItem="Tqx-Jx-Mse" secondAttribute="trailing" constant="8" id="T9k-Ss-EgB"/>
                                         <constraint firstItem="Tqx-Jx-Mse" firstAttribute="leading" secondItem="8up-GU-Gne" secondAttribute="trailing" constant="8" id="Tw4-yR-YtW"/>
                                         <constraint firstItem="Tqx-Jx-Mse" firstAttribute="leading" secondItem="fRq-o7-1Ly" secondAttribute="leading" id="V5g-or-At1"/>
-                                        <constraint firstItem="JCH-iC-DmL" firstAttribute="top" secondItem="Tqx-Jx-Mse" secondAttribute="bottom" constant="4" id="Xyc-qp-Wcq"/>
                                         <constraint firstAttribute="topMargin" secondItem="fRq-o7-1Ly" secondAttribute="top" id="ZxB-sa-V7f"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="8up-GU-Gne" secondAttribute="leading" id="aeO-Hb-wj8"/>
                                         <constraint firstItem="fRq-o7-1Ly" firstAttribute="leading" secondItem="8up-GU-Gne" secondAttribute="trailing" constant="8" id="nfz-di-Os4"/>
-                                        <constraint firstItem="JCH-iC-DmL" firstAttribute="leading" secondItem="Tqx-Jx-Mse" secondAttribute="leading" id="qbH-3o-8Sa"/>
                                         <constraint firstItem="5Id-do-wg1" firstAttribute="top" secondItem="fRq-o7-1Ly" secondAttribute="top" id="tyr-ue-pew"/>
                                         <constraint firstItem="8up-GU-Gne" firstAttribute="top" secondItem="WiY-UB-kFu" secondAttribute="topMargin" id="var-nf-fWh"/>
                                     </constraints>
@@ -109,7 +101,6 @@
                                 <connections>
                                     <outlet property="categoryVenue" destination="Tqx-Jx-Mse" id="p5e-vU-qrL"/>
                                     <outlet property="photoVenue" destination="8up-GU-Gne" id="8CE-At-ZRl"/>
-                                    <outlet property="price" destination="JCH-iC-DmL" id="nP0-SW-gk9"/>
                                     <outlet property="rating" destination="yP4-LT-jKH" id="ALt-hc-pOK"/>
                                     <outlet property="ratingRect" destination="5Id-do-wg1" id="rZa-h6-02C"/>
                                     <outlet property="titleVenue" destination="fRq-o7-1Ly" id="fdh-OG-FjP"/>

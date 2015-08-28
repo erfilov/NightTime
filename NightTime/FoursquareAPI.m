@@ -7,10 +7,11 @@
 //
 
 #import "FoursquareAPI.h"
+#import "NSNumber+Foursquare.h"
 
 
 
-@interface FoursquareAPI ()
+@interface FoursquareAPI () <NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 @property (strong, nonatomic) NSURL *baseUrl;
 @end
 
@@ -35,6 +36,16 @@
     return self;
 }
 
+- (AFHTTPRequestOperationManager *)operationManager
+{
+    if (!_operationManager)
+    {
+        _operationManager = [[AFHTTPRequestOperationManager alloc] init];
+        _operationManager.responseSerializer = [AFImageResponseSerializer serializer];
+    };
+    
+    return _operationManager;
+}
 
 - (void)updateVenuesFromCurrentLocation:(CLLocation *)location completionBlock:(NetworkRequestCompletionBlock)completionBlock {
     
@@ -70,7 +81,7 @@
         prefix = obj[@"prefix"];
         suffix = obj[@"suffix"];
         if (!idx) {
-            width = height = @"300";
+            width = height = @"100";
         } else {
             width = obj[@"width"];
             height = obj[@"height"];
@@ -80,8 +91,6 @@
     }];
     return [results copy];
 }
-
-
 
 - (void)getInfoFromVenue:(Venue *)venue completionBlock:(NetworkRequestCompletionBlock)completionBlock{
     
@@ -135,7 +144,8 @@
                                  NSDictionary *responseDictionary = responseObject[@"response"];
                                  NSDictionary *venueInfo = responseDictionary[@"venue"];
                                  NSDictionary *price = venueInfo[@"price"];
-                                 venue.price = price[@"message"] != nil ? price[@"message"] : @"";
+                                 NSString *priceTier = [price[@"tier"] gf_priceTierRerepresentationString];
+                                 venue.price = priceTier != nil ? priceTier : @"";
                                  venue.rating = venueInfo[@"rating"];
                                  venue.ratingColor = [UIColor colorWithHexString:venueInfo[@"ratingColor"]];
                              } else {

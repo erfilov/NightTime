@@ -22,8 +22,9 @@ typedef void(^NetworkRequestCompletionBlock)(id result, NSError *error);
 @property (assign, nonatomic) NSInteger radius;
 @property (strong, nonatomic) NSString *version;
 @property (strong, nonatomic) AFHTTPSessionManager *manager;
+@property (strong, nonatomic) AFHTTPRequestOperationManager *operationManager;
 @property (strong, nonatomic) dispatch_group_t group;
-@property (strong, nonatomic) NSURLSession *session;
+@property (strong, nonatomic) NSURLSession *dataSession;
 
 
 
