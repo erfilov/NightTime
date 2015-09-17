@@ -12,9 +12,9 @@
 #import "Location.h"
 #import "VenueTableViewCell.h"
 #import "UIColor+HexColors.h"
-#import <AFNetworking/UIImageView+AFNetworking.h>
 #import <CoreLocation/CoreLocation.h>
 #import "VenueDetailViewController.h"
+
 
 @interface VenueTableViewController : UITableViewController
 @property (assign, nonatomic) CGFloat longitude;

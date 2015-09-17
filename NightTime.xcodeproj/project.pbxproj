@@ -15,6 +15,7 @@
 		8441B5011B88EDEB0027C8E1 /* VenueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441B5001B88EDEB0027C8E1 /* VenueTableViewCell.m */; };
 		84AE42EC1B8F7485001012E5 /* NSNumber+Foursquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE42EB1B8F7485001012E5 /* NSNumber+Foursquare.m */; };
 		84AE43151B90D43D001012E5 /* NSObject+Associating.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AE43141B90D43D001012E5 /* NSObject+Associating.m */; };
+		84D8613B1B95E77F00DB6D80 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D8613A1B95E77F00DB6D80 /* MapKit.framework */; };
 		F58A16157813B3951AC8BB6A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C120C1BE13116EF8D9C8E83 /* libPods.a */; };
 		FB4CBFBE1B75F9400035C659 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4CBFBD1B75F9400035C659 /* Venue.m */; };
 		FB59C7001B637D9100521760 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB59C6FF1B637D9100521760 /* main.m */; };
@@ -57,6 +58,7 @@
 		84AE43131B90D43D001012E5 /* NSObject+Associating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Associating.h"; sourceTree = "<group>"; };
 		84AE43141B90D43D001012E5 /* NSObject+Associating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Associating.m"; sourceTree = "<group>"; };
 		84CDA35D1B6FDF06009C220C /* SF-UI-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Thin.otf"; sourceTree = "<group>"; };
+		84D8613A1B95E77F00DB6D80 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		84EA300D1B779BC000573126 /* SF-UI-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Light.otf"; sourceTree = "<group>"; };
 		84EA300E1B779BC000573126 /* SF-UI-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Regular.otf"; sourceTree = "<group>"; };
 		FA255F662277CE35A564C9EE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D8613B1B95E77F00DB6D80 /* MapKit.framework in Frameworks */,
 				FB59C72A1B63954900521760 /* CoreLocation.framework in Frameworks */,
 				F58A16157813B3951AC8BB6A /* libPods.a in Frameworks */,
 			);
@@ -236,6 +239,7 @@
 		FDCF2B2BD02CC583958BCC1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84D8613A1B95E77F00DB6D80 /* MapKit.framework */,
 				2C120C1BE13116EF8D9C8E83 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -287,7 +291,7 @@
 		FB59C6F21B637D9100521760 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Ерфилов Виктор";
 				TargetAttributes = {
 					FB59C6F91B637D9100521760 = {
@@ -452,6 +456,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -520,6 +525,7 @@
 				INFOPLIST_FILE = NightTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vve.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -533,6 +539,7 @@
 				INFOPLIST_FILE = NightTime/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vve.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -551,6 +558,7 @@
 				);
 				INFOPLIST_FILE = NightTimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vve.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NightTime.app/NightTime";
 			};
@@ -566,6 +574,7 @@
 				);
 				INFOPLIST_FILE = NightTimeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vve.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NightTime.app/NightTime";
 			};

@@ -24,21 +24,11 @@
     return [UIColor whiteColor];
 }
 
-+ (UIColor*)darkCandyAppleColor {
-    return [UIColor colorWithRed:0.68 green:0 blue:0 alpha:1];
-}
-
-+ (UIColor *)antiFlashWhiteColor {
-    return [UIColor colorWithRed:0.96 green:0.96 blue:0.95 alpha:1];
-}
-
 - (void)customizeNavigationBar {
     UINavigationBar *appearance = [UINavigationBar appearance];
     [appearance setBarTintColor:[AppearanceCustomization blueColor]];
     [appearance setTintColor:[AppearanceCustomization whiteColor]];
-    //    NSShadow *shadow = [[NSShadow alloc] init];
-    //    shadow.shadowColor = [[AppearanceCustomization darkCandyAppleColor] colorWithAlphaComponent:0.5];
-    //    shadow.shadowOffset = CGSizeMake(1, 1);
+
     appearance.titleTextAttributes = @{
                                        NSFontAttributeName : [UIFont fontWithName:@"SFUIDisplay-Bold" size:17],
                                        NSForegroundColorAttributeName : [AppearanceCustomization whiteColor],

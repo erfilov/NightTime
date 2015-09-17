@@ -14,6 +14,7 @@
 #import "Venue.h"
 #import "UIColor+HexColors.h"
 
+
 typedef void(^NetworkRequestCompletionBlock)(id result, NSError *error);
 
 @interface FoursquareAPI : NSObject
@@ -22,9 +23,11 @@ typedef void(^NetworkRequestCompletionBlock)(id result, NSError *error);
 @property (assign, nonatomic) NSInteger radius;
 @property (strong, nonatomic) NSString *version;
 @property (strong, nonatomic) AFHTTPSessionManager *manager;
-@property (strong, nonatomic) AFHTTPRequestOperationManager *operationManager;
+@property (strong, nonatomic) AFURLSessionManager *URLSessionManager;
+
 @property (strong, nonatomic) dispatch_group_t group;
-@property (strong, nonatomic) NSURLSession *dataSession;
+@property (strong, nonatomic) dispatch_queue_t queue;
+
 
 
 
@@ -38,3 +41,4 @@ typedef void(^NetworkRequestCompletionBlock)(id result, NSError *error);
 - (void)showAlertWhenNoVenues;
 - (void)showAlertWhenParsingError;
 @end
+

@@ -22,7 +22,7 @@ typedef void(^NetworkRequestCompletionBlock)(id result, NSError *error);
 @property (strong, nonatomic) NSString *addressVenue;
 @property (strong, nonatomic) NSString *cityVenue;
 @property (strong, nonatomic) NSString *price;
-@property (strong, nonatomic) NSNumber *rating;
+@property (strong, nonatomic) NSString *rating;
 @property (strong, nonatomic) UIColor *ratingColor;
 @property (strong, nonatomic) NSString *phoneVenue;
 @property (strong, nonatomic) NSString *websiteUrl;

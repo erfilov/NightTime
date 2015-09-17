@@ -39,7 +39,7 @@
     self.websiteURL.text = self.venue.websiteUrl;
     self.title = self.venue.title;
     
-
+    
     
     
     
@@ -57,6 +57,6 @@
 }
 
 
- 
+
 
 @end

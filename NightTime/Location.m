@@ -34,6 +34,8 @@
     return self;
 }
 
+
+
 + (instancetype)sharedInstance {
 
     static Location *location = nil;
@@ -42,9 +44,18 @@
         dispatch_once(&onceToken, ^{
             location = [Location new];
         });
-    } else {
-        NSLog(@"Location services are not enabled");
+    } else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Permisson denied"
+                                                        message:@"Please go to Settings and turn on Location Service for this app."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
     }
+    
+    
+
 
     return location;
 }

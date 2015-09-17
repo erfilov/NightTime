@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+
 @import CoreLocation;
 #import "Venue.h"
-@import UIKit;
-@import MapKit;
 #import "UIColor+HexColors.h"
 
 @interface VenueDetailViewController : UIViewController

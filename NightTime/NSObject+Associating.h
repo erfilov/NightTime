@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSObject (Associating)
-@property (nonatomic, strong) id associatedObject;
+@property (nonatomic, retain) id associatedObject;
 @end

@@ -13,6 +13,7 @@
 
 @interface FoursquareAPI () <NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 @property (strong, nonatomic) NSURL *baseUrl;
+@property (strong, nonatomic) NSMutableData *currentData;
 @end
 
 @implementation FoursquareAPI
@@ -23,12 +24,18 @@
     if (self) {
         _clientID       = @"P2JOKBXE0DCVTWLUB43KKAB5FBURSCRPJUF32YQGWSIUJBRI";
         _clientSecret   = @"51B2RFMD0ULFSLKZD3SRQLGDBAFQICV5PSJDXFL0VDYAYZT2";
-        _radius         = 10000;
+        _radius         = 15000;
         _version        = @"20150815";
         
         _baseUrl = [NSURL URLWithString:@"https://api.foursquare.com/v2/"];
-        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:_baseUrl];
+//        _manager = [[AFHTTPSessionManager alloc] initWithBaseURL:_baseUrl];
+        _URLSessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        
+        
         _group = dispatch_group_create();
+        _queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+
 
         
         
@@ -36,16 +43,7 @@
     return self;
 }
 
-- (AFHTTPRequestOperationManager *)operationManager
-{
-    if (!_operationManager)
-    {
-        _operationManager = [[AFHTTPRequestOperationManager alloc] init];
-        _operationManager.responseSerializer = [AFImageResponseSerializer serializer];
-    };
-    
-    return _operationManager;
-}
+
 
 - (void)updateVenuesFromCurrentLocation:(CLLocation *)location completionBlock:(NetworkRequestCompletionBlock)completionBlock {
     
@@ -53,7 +51,7 @@
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseUrl.description, venueListUrl]];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[self.manager dataTaskWithRequest:[NSURLRequest requestWithURL:url] completionHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError * _Nonnull error) {
+        [[self.URLSessionManager dataTaskWithRequest:[NSURLRequest requestWithURL:url] completionHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError * _Nonnull error) {
             if (error != nil) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completionBlock(nil, error);
@@ -63,6 +61,7 @@
             if ([responseObject isKindOfClass:[NSDictionary class]] && responseObject != nil) {
                 NSDictionary *responseDictionary = responseObject[@"response"];
                 NSArray *venues = [self createArrayVenues:responseDictionary];
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     completionBlock(venues, nil);
                 });
@@ -97,9 +96,11 @@
 
         NSString *venuePhotoUrl = [NSString stringWithFormat:@"venues/%@/photos?client_id=%@&client_secret=%@&v=%@&limit=10",
                                    venue.venueID, self.clientID, self.clientSecret, self.version];
-        
+    
+    dispatch_group_async(self.group, self.queue, ^{
         dispatch_group_enter(self.group);
-        [[self.manager dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseUrl.description, venuePhotoUrl]]]
+    
+        [[self.URLSessionManager dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseUrl.description, venuePhotoUrl]]]
                          completionHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError * _Nonnull error) {
                              
                              if (error != nil) {
@@ -125,11 +126,13 @@
                                  return;
                              }
                          }] resume];
+        
+            
         dispatch_group_leave(self.group);
         
         NSString *venueInfoUrl = [NSString stringWithFormat:@"venues/%@?client_id=%@&client_secret=%@&v=%@", venue.venueID, self.clientID, self.clientSecret, self.version];
         dispatch_group_enter(self.group);
-        [[self.manager dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseUrl.description, venueInfoUrl]]]
+        [[self.URLSessionManager dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", self.baseUrl.description, venueInfoUrl]]]
                          completionHandler:^(NSURLResponse * _Nonnull response, id  _Nonnull responseObject, NSError * _Nonnull error) {
                              
                              if (error != nil) {
@@ -137,25 +140,31 @@
                                      completionBlock(nil, error);
                                      return;
                                  });
-                                 
-                                 return;
                              }
+                             
                              if ([responseObject isKindOfClass:[NSDictionary class]] && responseObject != nil) {
                                  NSDictionary *responseDictionary = responseObject[@"response"];
                                  NSDictionary *venueInfo = responseDictionary[@"venue"];
                                  NSDictionary *price = venueInfo[@"price"];
                                  NSString *priceTier = [price[@"tier"] gf_priceTierRerepresentationString];
-                                 venue.price = priceTier != nil ? priceTier : @"";
-                                 venue.rating = venueInfo[@"rating"];
-                                 venue.ratingColor = [UIColor colorWithHexString:venueInfo[@"ratingColor"]];
+                                 
+                                     venue.price = priceTier != nil ? priceTier : @"";
+                                     NSString *rating = [NSString stringWithFormat:@"%.1f", [venueInfo[@"rating"] floatValue]];
+                                     venue.rating = [rating isEqualToString:@"0.0"] ? @"--" : rating;
+                                     venue.ratingColor = [UIColor colorWithHexString:venueInfo[@"ratingColor"]];
+                                 
+                                 
                              } else {
                                  [self showAlertWhenParsingError];
                                  return;
                              }
                          }] resume];
         dispatch_group_leave(self.group);
+    });
     
-    dispatch_group_notify(self.group, dispatch_get_main_queue(), ^{
+    dispatch_group_wait(self.group, DISPATCH_TIME_FOREVER);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
         completionBlock(venue, nil);
     });
     
